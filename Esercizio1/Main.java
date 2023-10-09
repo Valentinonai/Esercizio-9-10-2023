@@ -1,32 +1,40 @@
 package Esercizio1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+    private static Logger log = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
 
         int[] array = fillArray();
         Scanner input = new Scanner(System.in);
 
+        log.info(Arrays.toString(array));
+
         Exit:
         while (true) {
             try {
 
-                System.out.println("Inserisci l'indice dell'array di cinque elementi da visualizzare");
+                log.info("Inserisci l'indice dell'array di cinque elementi da visualizzare");
                 int n = Integer.parseInt(input.nextLine()) - 1;
 
                 if (n == -1) break Exit;
-                else System.out.println("Il numero in posizione " + n + " è: " + array[n]);
+                else log.info("Il numero in posizione " + n + " è: " + array[n]);
 
             } catch (ArrayIndexOutOfBoundsException e) {
-                System.out.println("Posizione dell'array inesistente");
+                log.info("Posizione dell'array inesistente");
 
             } catch (NumberFormatException e) {
-                System.out.println("Non hai inserito un valore valido");
+                log.info("Non hai inserito un valore valido");
 
             } catch (Exception e) {
-                System.out.println(e.getMessage());
+                log.info(e.getMessage());
             }
         }
         input.close();
