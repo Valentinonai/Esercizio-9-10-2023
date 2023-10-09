@@ -27,6 +27,12 @@ public class Main {
                 if (n == -1) break Exit;
                 else log.info("Il numero in posizione " + n + " è: " + array[n]);
 
+                log.info("Inserisci il numero da sostituire in posizione " + (n + 1));
+
+                int x = Integer.parseInt(input.nextLine());
+                array[n] = x;
+                log.info(Arrays.toString(array));
+
             } catch (ArrayIndexOutOfBoundsException e) {
                 log.info("Posizione dell'array inesistente");
 
